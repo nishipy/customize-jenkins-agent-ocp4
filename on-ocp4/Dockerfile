@@ -8,9 +8,10 @@ USER root
 
 COPY ./etc-pki-entitlement /etc/pki/entitlement
 
+RUN ls /etc/pki/entitlement/
 RUN yum install -y ${EPEL_URL}
 RUN yum-config-manager --enable rhel-7-server-rpms
-RUN  yum-config-manager --enable rhel-7-server-extras-rpms
+RUN yum-config-manager --enable rhel-7-server-extras-rpms
 RUN yum-config-manager --enable rhel-7-server-optional-rpms
 RUN yum repolist
 RUN yum install -y skopeo chromedriver ipa-pgothic-fonts.noarch python-pip \
