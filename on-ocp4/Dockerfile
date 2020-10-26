@@ -8,13 +8,15 @@ USER root
 
 COPY ./etc-pki-entitlement /etc/pki/entitlement
 
-RUN yum install -y ${EPEL_URL} \
-    && yum-config-manager --enable rhel-7-server-rpms \
-    && yum-config-manager --enable rhel-7-server-extras-rpms \
-    && yum-config-manager --enable rhel-7-server-optional-rpms \
-    && yum install -y skopeo chromedriver ipa-pgothic-fonts.noarch python-pip \
+RUN yum install -y ${EPEL_URL}
+RUN yum-config-manager --enable rhel-7-server-rpms
+RUN  yum-config-manager --enable rhel-7-server-extras-rpms
+RUN yum-config-manager --enable rhel-7-server-optional-rpms
+RUN yum repolist
+RUN yum install -y skopeo chromedriver ipa-pgothic-fonts.noarch python-pip \
     && yum install -y  ${CHROME_URL} \
-    && rm -rf /var/tmp/* 
+    && rm -rf /var/tmp/* \
+    && rm -rf /etc/pki/entitlement 
 RUN pip install selenium
 
 USER 1001
