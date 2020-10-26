@@ -12,7 +12,7 @@ metadata:
 spec:
   source:
     git:
-      uri: https://github.com/nishipy/jenkins-agent-customized-ocp4
+      uri: https://github.com/nishipy/customize-jenkins-agent-ocp4
       ref: main
     type: Git
     secrets:
