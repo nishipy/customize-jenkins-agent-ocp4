@@ -12,7 +12,7 @@ metadata:
 spec:
   source:
     git:
-      uri: https://github.com/nishipy/jenkins-agent-custom
+      uri: https://github.com/nishipy/jenkins-agent-customized-ocp4
       ref: main
     type: Git
     secrets:
@@ -22,7 +22,7 @@ spec:
   strategy: 
     type: Docker
     dockerStrategy:
-      dockerfilePath: Dockerfile
+      dockerfilePath: on-ocp4/Dockerfile
   output:
     to:
       kind: ImageStreamTag

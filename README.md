@@ -23,10 +23,12 @@
 - カスタマーポータルからエンタイトルメント証明書をダウンロード[1]し、`on-ocp4/entitlement_certificates/`に配置
 - パブリックキーとプライベートキーを別ファイルに分けて、シークレットとして登録[2]
 	```
-	$ oc create secret generic etc-pki-entitlement --from-file /path/to/entitlement/{ID}.pem \
-	  --from-file /path/to/entitlement/{ID}-key.pem
+	$ oc new-project custom-jenkins-agent
+	$ oc create secret generic etc-pki-entitlement --from-file on-ocp4/entitlement_certificates/<ID>.pem \
+	  --from-file on-ocp4/entitlement_certificates/<ID>-key.pem 
+  secret/etc-pki-entitlement created
 	```
-
+- 
 ### 
 ## References
 [1]:  https://access.redhat.com/documentation/ja-jp/red_hat_customer_portal/1/html/red_hat_network_certificate-based_subscription_management/index
