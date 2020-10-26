@@ -21,6 +21,7 @@ RUN rm /etc/rhsm-host && \
     subscription-manager repos --enable rhel-7-server-rpms && \
     subscription-manager repos --enable rhel-7-server-extras-rpms && \
     subscription-manager repos --enable rhel-7-server-optional-rpms && \
+    yum install -y ${EPEL_URL} &&\
     yum install -y skopeo chromedriver ipa-pgothic-fonts.noarch python-pip &&\
     yum install -y  ${CHROME_URL} &&\
     rm -rf /var/tmp/* &&\
