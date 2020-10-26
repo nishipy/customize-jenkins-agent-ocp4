@@ -6,6 +6,8 @@ ENV EPEL_URL https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
 ENV CHROME_URL https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 USER root
 
+COPY ./etc-pki-entitlement /etc/pki/entitlement
+
 RUN yum install -y ${EPEL_URL} \
     && yum-config-manager --enable rhel-7-server-rpms \
     && yum-config-manager --enable rhel-7-server-extras-rpms \
